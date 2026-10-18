@@ -1,0 +1,263 @@
+/* ================= COLORS (yahan se poori theme badal sakte ho) =================
+   :root mein colors ek baar likhte hain, phir neeche var(...) se use karte hain */
+:root {
+  --cream: #f5f3ef;        /* page ka cream background */
+  --card: #fffdf8;         /* cards ka halka cream-white */
+  --navy: #1b2a4a;         /* text aur top bar ka dark navy */
+  --amber: #f59e0b;        /* buttons aur highlights ka amber */
+  --border: #e4dfd3;       /* halki border */
+  --muted: #6b7686;        /* chhota/halka text */
+  --green: #16a34a;        /* sahi answer */
+  --red: #dc2626;          /* galat answer */
+}
+
+/* Sabhi elements ki width mein padding/border shamil ho (layout bigadta nahi) */
+* {
+  box-sizing: border-box;
+}
+
+/* ================= PAGE ================= */
+body {
+  margin: 0;                                    /* default gap hataya */
+  background-color: var(--cream);
+  color: var(--navy);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
+
+/* ================= TOP BAR (Ankit ka naam) ================= */
+.top-bar {
+  background-color: var(--navy);
+  color: var(--cream);
+  padding: 20px 16px;
+  text-align: center;
+  border-bottom: 4px solid var(--amber);
+}
+
+.user-name {
+  margin: 0;
+  font-size: 26px;
+}
+
+.tagline {
+  margin: 4px 0 0;
+  color: var(--amber);
+  font-size: 15px;
+}
+
+/* ================= MAIN BOX ================ */
+.container {
+  max-width: 640px;        /* bade screen par bhi box zyada chauda nahi hoga */
+  margin: 0 auto;          /* box ko beech mein rakhta hai */
+  padding: 20px 16px 60px;
+}
+
+.title {
+  font-size: 22px;
+  margin: 8px 0 16px;
+}
+
+/* ================= SUBJECT / GROUP / CHAPTER BUTTONS ================= */
+.card-grid {
+  display: grid;           /* buttons ko upar-neeche set karta hai */
+  gap: 12px;               /* buttons ke beech ka gap */
+}
+
+.card-btn {
+  background-color: var(--card);
+  color: var(--navy);
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  font-size: 17px;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* Mouse upar aaye to border amber ho jaye */
+.card-btn:hover {
+  border-color: var(--amber);
+}
+
+/* Button dabate waqt thoda chhota ho (press feel) */
+.card-btn:active {
+  transform: scale(0.98);
+}
+
+.card-icon {
+  font-size: 22px;
+  margin-right: 6px;
+}
+
+.small-text {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Jin chapters ke questions abhi nahi hain, wo halke aur band dikhenge */
+.card-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tag-soon {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* ================= BACK BUTTON ================= */
+.back-btn {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 16px;
+  padding: 6px 0;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+/* ================= TIMER BAR (quiz ke upar chipka rahta hai) ================= */
+.timer-bar {
+  position: sticky;        /* scroll karne par bhi upar chipka rahe */
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--card);
+  border: 2px solid var(--amber);
+  border-radius: 14px;
+  padding: 10px 16px;
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+
+.timer-time {
+  font-size: 24px;
+  font-variant-numeric: tabular-nums;   /* numbers ki width same rakhta hai, timer hilta nahi */
+}
+
+.progress {
+  color: var(--muted);
+  margin: 0 0 14px;
+}
+
+/* ================= QUESTION CARD ================= */
+.question-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.question-text {
+  margin: 0 0 12px;
+  font-weight: bold;
+}
+
+/* Har option (tick wala) */
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+/* Tick karne wala gola bada aur amber */
+.option input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--amber);
+  flex-shrink: 0;
+}
+
+/* Jo option tick ho, uska background amber-halka ho jata hai */
+.option:has(input:checked) {
+  border-color: var(--amber);
+  background-color: rgba(245, 158, 11, 0.12);
+}
+
+/* ================= SUBMIT BUTTON ================= */
+.submit-btn {
+  background-color: var(--amber);
+  color: var(--navy);
+  border: none;
+  border-radius: 14px;
+  padding: 16px;
+  font-size: 18px;
+  font-weight: bold;
+  width: 100%;
+  cursor: pointer;
+}
+
+.note {
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* ================= RESULT SCREEN ================= */
+.result-box {
+  text-align: center;
+}
+
+.animal-icon {
+  font-size: 96px;
+  line-height: 1.1;
+}
+
+.animal-name {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.result-msg {
+  color: var(--muted);
+}
+
+.stats-row {
+  display: flex;
+  gap: 10px;
+  margin: 16px 0 24px;
+}
+
+.stat-box {
+  flex: 1;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px 6px;
+}
+
+.stat-box b {
+  display: block;
+  font-size: 24px;
+}
+
+.stat-box small {
+  color: var(--muted);
+}
+
+.review-title {
+  text-align: left;
+  margin-top: 28px;
+}
+
+/* ================= ANSWER REVIEW (sahi = hara, galat = laal) ================= */
+.opt-correct {
+  border-color: var(--green);
+  background-color: rgba(22, 163, 74, 0.15);
+}
+
+.opt-wrong {
+  border-color: var(--red);
+  background-color: rgba(220, 38, 38, 0.12);
+}
